@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+#Spark job initiator
+  spark:
+    image: ilyassifez/bdataproject:sparky
+    container_name: spark
+    command: ["sh", "-c", "./spark-script.sh"]
+    volumes:
+      - stack-creator_mykubeconfig:/root/.kube
+      - stack-creator_myawsconfig:/root/.aws
+
+volumes:
+  stack-creator_mykubeconfig:
+    external: true
+  stack-creator_myawsconfig:
+    external: true
