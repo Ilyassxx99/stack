@@ -1,6 +1,6 @@
 # readme
 
-This repository has a docker-compose files that let you create and delete EKS cluster with 5 t2.micro nodes autoscaled between 3 and 7. It contains a docker-compose to start spark jobs on the EKS cluster.
+This repository has a docker-compose files that allows you to create and delete EKS cluster with 5 t2.micro nodes autoscaled between 3 and 7. It contains a docker-compose to start spark jobs on the EKS cluster.
 You should have docker and docker-compose installed in your environment
 
 
