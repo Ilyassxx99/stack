@@ -7,7 +7,7 @@ aws configure set default.region $REGION
 aws cloudformation create-stack --stack-name All-in-One --template-body file://one-formation.yaml --capabilities CAPABILITY_NAMED_IAM
 #Check if cluster created
 echo "Creating CloudFormation Stack ..."
-sleep 300
+sleep 600
 stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
 temp="${stackstatus%\"}"
 stackstatus="${temp#\"}"
@@ -15,9 +15,9 @@ condition="CREATE_COMPLETE"
 while [ "$stackstatus" != "$condition" ]
 do
   stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
-  echo "stack status = $stackstatus"
-  echo "condition is $condition"
-  sleep 10
+  temp="${stackstatus%\"}"
+  stackstatus="${temp#\"}"
+  sleep 5
 done
 echo "CloudFormation Stack created successfully"
 #AWS user authentication to cluster

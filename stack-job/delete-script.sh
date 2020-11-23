@@ -18,7 +18,7 @@ done
 echo "Managed NodeGroup deleted successfully"
 aws cloudformation delete-stack --stack-name All-in-One
 echo "Deleting CloudFromation stack ..."
-sleep 20
+sleep 40
 stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
 temp="${stackstatus%\"}"
 stackstatus="${temp#\"}"
@@ -26,6 +26,8 @@ condition="DELETE_IN_PROGRESS"
 while [ "$stackstatus" == "$condition" ]
 do
   stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
+  temp="${stackstatus%\"}"
+  stackstatus="${temp#\"}"
   sleep 5
 done
 echo "CloudFormation stack deleted successfully"
