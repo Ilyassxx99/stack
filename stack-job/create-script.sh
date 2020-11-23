@@ -9,7 +9,10 @@ aws cloudformation create-stack --stack-name All-in-One --template-body file://o
 echo "Creating CloudFormation Stack ..."
 sleep 300
 stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
-while [ $stackstatus != "CREATE_COMPLETE" ]
+temp="${stackstatus%\"}"
+stackstatus="${temp#\"}"
+condition="CREATE_COMPLETE"
+while [ "$stackstatus" != "$condition" ]
 do
   stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
   sleep 10
@@ -24,6 +27,6 @@ kubectl create serviceaccount spark
 kubectl create clusterrolebinding spark-role --clusterrole=edit  --serviceaccount=default:spark --namespace=default
 echo "Deploying kube-opex-analytics ..."
 kubectl apply -f k8s
-sleep 70
+sleep 40
 podname=$(kubectl get pods -o jsonpath='{.items[0].metadata.name}')
 kubectl port-forward $podname 5483:5483
