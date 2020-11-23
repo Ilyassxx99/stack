@@ -16,7 +16,6 @@ Th .env file should look like this :
 ACCESS_KEY=<Your access key>
 SECRET_KEY=<Your secret key>
 REGION=<Your region>
-
 ```
 ## Running the containers
 
