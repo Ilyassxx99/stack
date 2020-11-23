@@ -4,16 +4,16 @@ This repository has a docker-compose files that let you create and delete EKS cl
 You should have docker and docker-compose installed in your environment
 
 
-### Prepare the content
+## Prepare the content
 
 To successfully create the cluster, please enter your AWS user (with the right permissions to use AWS resources) Access_key and Secret_key and Region used, in the .env file in 
 ```
 - stack-job/stack-creator
 - stack-job/stack-destructor
 ```
-### Running the containers
+## Running the containers
 
-## Create EKS Cluster
+### Create EKS Cluster
 
 To create the EKS cluster go to :
 ```
@@ -23,7 +23,7 @@ and execute :
 ```
  docker-compose up
 ```
-## Delete EKS Cluster
+### Delete EKS Cluster
 
 To delete the EKS cluster go to :
 ```
@@ -33,7 +33,7 @@ and execute :
 ```
  docker-compose up
 ```
-## Run Spark job
+### Run Spark job
 
 To run a spark job go to :
 ```
