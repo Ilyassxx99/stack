@@ -20,7 +20,7 @@ REGION=<eu-west-3>
 ```
 ## Running the containers
 
-### Create EKS Cluster
+### Create Stack
 
 To create the EKS cluster go to :
 ```
@@ -30,7 +30,7 @@ and execute :
 ```
  docker-compose up
 ```
-### Delete EKS Cluster
+### Delete Stack
 
 To delete the EKS cluster go to :
 ```
