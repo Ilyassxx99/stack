@@ -22,7 +22,7 @@ REGION=<Your region>
 
 ### Create Stack
 
-To create the EKS cluster go to :
+To create the AWS stack go to :
 ```
  stack-job/stack-creator
 ```
@@ -32,7 +32,7 @@ and execute :
 ```
 ### Delete Stack
 
-To delete the EKS cluster go to :
+To delete the AWS stack go to :
 ```
  stack-job/stack-destructor
 ```
