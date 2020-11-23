@@ -4,14 +4,16 @@ This repository has a docker-compose files that let you create and delete EKS cl
 You should have docker and docker-compose installed in your environment
 
 
-## Prepare the content
+### Prepare the content
 
 To successfully create the cluster, please enter your AWS user (with the right permissions to use AWS resources) Access_key and Secret_key and Region used, in the .env file in 
 ```
 - stack-job/stack-creator
 - stack-job/stack-destructor
 ```
-## Running the containers
+### Running the containers
+
+## Create EKS Cluster
 
 To create the EKS cluster go to :
 ```
@@ -21,12 +23,23 @@ and execute :
 ```
  docker-compose up
 ```
+## Delete EKS Cluster
 
-### References
+To delete the EKS cluster go to :
+```
+ stack-job/stack-destructor
+```
+and execute :
+```
+ docker-compose up
+```
+## Run Spark job
 
-- **Choose an open source license**. Github. Available at: https://choosealicense.com/
-- **Getting started with writing and formatting on Github**. Github. Available at: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
-- **Markdown here cheatsheet**. Markdown Here Wiki. Available at: https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet
-- **Markdown quick reference**. Wordpress. Available at: https://en.support.wordpress.com/markdown-quick-reference/
-- **readme-template**. Dan Bader. Github. Available at: https://github.com/dbader/readme-template
-- Writing READMEs. **Udacity**. Available at: https://classroom.udacity.com/courses/ud777/
+To run a spark job go to :
+```
+ spark-job
+```
+and execute :
+```
+ docker-compose up
+```
