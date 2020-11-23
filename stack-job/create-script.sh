@@ -15,6 +15,8 @@ condition="CREATE_COMPLETE"
 while [ "$stackstatus" != "$condition" ]
 do
   stackstatus=$(aws cloudformation describe-stacks --stack-name All-in-One --query 'Stacks[0].StackStatus')
+  echo "stack status = $stackstatus"
+  echo "condition is $condition"
   sleep 10
 done
 echo "CloudFormation Stack created successfully"
@@ -25,8 +27,8 @@ kubectl get nodes
 #Creating service account to be used by spark job
 kubectl create serviceaccount spark
 kubectl create clusterrolebinding spark-role --clusterrole=edit  --serviceaccount=default:spark --namespace=default
-echo "Deploying kube-opex-analytics ..."
 kubectl apply -f k8s
+echo "Deploying kube-opex-analytics ..."
 sleep 40
 podname=$(kubectl get pods -o jsonpath='{.items[0].metadata.name}')
 kubectl port-forward $podname 5483:5483
