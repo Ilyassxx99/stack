@@ -6,7 +6,7 @@ You should have docker and docker-compose installed in your environment
 
 ## Prepare the environment
 
-To successfully create the cluster, please enter your AWS user (with the right permissions to use AWS resources) Access_key and Secret_key and Region used, in the .env file in 
+To successfully create the cluster, please enter your AWS user's Access_key and Secret_key (with the right permissions to use AWS resources), and the region where to create the resources, in the .env file located in :
 ```
 - stack-job/stack-creator/.env
 - stack-job/stack-destructor/.env
@@ -16,7 +16,6 @@ Th .env file should look like this :
 ACCESS_KEY=<Your access key>
 SECRET_KEY=<Your secret key>
 REGION=<Your region>
-
 ```
 ## Running the containers
 
